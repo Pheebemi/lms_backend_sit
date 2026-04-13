@@ -203,5 +203,24 @@ FRONTEND_URL = config('FRONTEND_URL', default='http://localhost:3000')
 # WHITENOISE_USE_FINDERS = True
 # WHITENOISE_AUTOREFRESH = True
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'django_errors.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
+
 
 
