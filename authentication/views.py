@@ -72,17 +72,12 @@ SIT Technologies LMS
                 recipient_list=[user.email],
                 fail_silently=False,
             )
-            print(f"✅ OTP sent to {user.email}")
+            print(f"OTP sent to {user.email}")
         except Exception as e:
-            print(f"❌ Failed to send email to {user.email}: {e}")
-            # Fallback to console for debugging
-            print(f"\n{'='*50}")
-            print(f"EMAIL VERIFICATION OTP (FALLBACK)")
-            print(f"{'='*50}")
+            print(f"Failed to send email to {user.email}: {e}")
             print(f"Email: {user.email}")
             print(f"OTP Code: {otp.otp_code}")
             print(f"Expires at: {otp.expires_at}")
-            print(f"{'='*50}\n")
         
         return Response({
             'message': 'User registered successfully. Please verify your email.',
@@ -304,17 +299,12 @@ SIT Technologies LMS
             recipient_list=[email],
             fail_silently=False,
         )
-        print(f"✅ Resend OTP sent to {email}")
+        print(f"Resend OTP sent to {email}")
     except Exception as e:
-        print(f"❌ Failed to resend email to {email}: {e}")
-        # Fallback to console for debugging
-        print(f"\n{'='*50}")
-        print(f"RESEND EMAIL VERIFICATION OTP (FALLBACK)")
-        print(f"{'='*50}")
+        print(f"Failed to resend email to {email}: {e}")
         print(f"Email: {email}")
         print(f"OTP Code: {otp.otp_code}")
         print(f"Expires at: {otp.expires_at}")
-        print(f"{'='*50}\n")
     
     return Response({
         'message': 'OTP sent successfully',
