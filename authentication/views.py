@@ -53,10 +53,10 @@ class RegisterView(generics.CreateAPIView):
         # Send OTP via email
         try:
             send_mail(
-                subject='Verify your email - SIT Technologies LMS',
+                subject='Verify your email - LMS by SIT Technologies',
                 message=f'''Hello {user.first_name},
 
-Thank you for registering with SIT Technologies LMS.
+Thank you for registering with LMS by SIT Technologies.
 
 Your verification code is:
 
@@ -66,7 +66,7 @@ This code expires in 10 minutes.
 
 If you did not create an account, you can ignore this email.
 
-SIT Technologies LMS
+LMS by SIT Technologies
                 ''',
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[user.email],
@@ -282,7 +282,7 @@ def resend_otp(request):
     # Send OTP via email
     try:
         send_mail(
-            subject='New verification code - SIT Technologies LMS',
+            subject='New verification code - LMS by SIT Technologies',
             message=f'''Hello {user.first_name},
 
 Here is your new verification code:
@@ -293,7 +293,7 @@ This code expires in 10 minutes. The previous code is no longer valid.
 
 If you did not request this, you can ignore this email.
 
-SIT Technologies LMS
+LMS by SIT Technologies
             ''',
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[email],
